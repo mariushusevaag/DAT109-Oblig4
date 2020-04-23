@@ -1,0 +1,42 @@
+class Craps  
+{  
+  public static void main(String[] args) {
+    TerningKopp tk = new TerningKopp();
+      
+    int sum = tk.trillTerninger();
+    System.out.println("Du trilte " + sum);
+    
+    if (sum == 7) {
+      System.out.println("Du vant!");
+    } else {
+      System.out.println("Du tapte!");
+    }
+  }  
+  
+  1 -- 1 TerningKopp;
+}
+
+class Terning  
+{  
+  int max = 6;
+  int verdi;
+  
+  public int trill() {
+    verdi = (int) (Math.random() * max) + 1;
+    return verdi;
+  }
+  
+  1 -- 2 TerningKopp;
+   
+}  
+
+class TerningKopp
+{
+  Terning t1 = new Terning();
+  Terning t2 = new Terning();
+  
+  public int trillTerninger() {
+		return t1.trill() + t2.trill();
+  }
+    
+}
